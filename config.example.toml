@@ -1,0 +1,16 @@
+[hotkeys]
+terminal = "cmd+g"
+editor = "cmd+e"
+
+[terminal]
+kind = "iterm2" # iterm2 | alacritty
+alacritty_mode = "ipc" # ipc | native_tab
+# executable = "/Applications/Alacritty.app/Contents/MacOS/alacritty"
+
+[editor]
+kind = "vscode"
+reuse_window = true
+# executable = "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+
+[logging]
+enabled = false # 开启后记录操作结果和错误；关闭后保留已有日志
