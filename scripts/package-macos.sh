@@ -8,7 +8,8 @@ case "$arch" in arm64|x86_64) ;; *) echo "Unsupported architecture: $arch" >&2; 
 bash scripts/bundle.sh
 app="dist/FinderJump.app"
 archive="FinderJump-${version}-macOS-${arch}.zip"
-/usr/bin/lipo -verify_arch "$arch" "$app/Contents/MacOS/finder-jump"
+# Apple lipo 要求输入文件在前，避免路径被当成 -verify_arch 的架构参数。
+/usr/bin/lipo "$app/Contents/MacOS/finder-jump" -verify_arch "$arch"
 /usr/bin/ditto -c -k --sequesterRsrc --keepParent "$app" "dist/$archive"
 (
   cd dist
